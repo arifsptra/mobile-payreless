@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SingleChildScrollView(
             child: Column(
               children: [
-                const SizedBox(height: 95), // Space for AppBar
+                const SizedBox(height: 95),
                 UserInfoCard(),
                 HotspotCard(),
                 FeaturesGrid(),
@@ -51,8 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 Berita(),
                 SelaluAda(),
                 const SizedBox(height: 20),
-                // _buildCarousel(),
-                const SizedBox(height: 50), // Extra space for bottom bar
               ],
             ),
           ),
@@ -124,40 +122,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 : Colors.grey,
       ),
       onPressed: () => _onItemTapped(index),
-    );
-  }
-
-  Widget _buildCarousel() {
-    return CarouselSlider.builder(
-      itemCount: 5,
-      itemBuilder:
-          (BuildContext context, int itemIndex, int pageViewIndex) => Container(
-            width: double.infinity,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            decoration: BoxDecoration(
-              color: Colors.red,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Center(
-              child: Text(
-                itemIndex.toString(),
-                style: const TextStyle(color: Colors.white, fontSize: 40),
-              ),
-            ),
-          ),
-      options: CarouselOptions(
-        height: 200,
-        aspectRatio: 16 / 9,
-        viewportFraction: 0.8,
-        initialPage: 0,
-        enableInfiniteScroll: true,
-        autoPlay: true,
-        autoPlayInterval: const Duration(seconds: 3),
-        autoPlayAnimationDuration: const Duration(milliseconds: 800),
-        autoPlayCurve: Curves.fastOutSlowIn,
-        enlargeCenterPage: true,
-        scrollDirection: Axis.horizontal,
-      ),
     );
   }
 }
@@ -733,7 +697,42 @@ class BestOffers extends StatelessWidget {
               ),
             ],
           ),
-          Text("Ini nanti Carousel"),
+          SizedBox(height: 6),
+          CarouselSlider.builder(
+            itemCount: 5,
+            itemBuilder:
+                (BuildContext context, int itemIndex, int pageViewIndex) =>
+                    Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Text(
+                          itemIndex.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                          ),
+                        ),
+                      ),
+                    ),
+            options: CarouselOptions(
+              height: 200,
+              aspectRatio: 4 / 3,
+              viewportFraction: 0.4,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 10),
+              autoPlayAnimationDuration: const Duration(milliseconds: 2000),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+            ),
+          ),
         ],
       ),
     );
@@ -915,7 +914,42 @@ class SelaluAda extends StatelessWidget {
               ),
             ],
           ),
-          Text("Ini nanti Carousel"),
+          SizedBox(height: 6),
+          CarouselSlider.builder(
+            itemCount: 5,
+            itemBuilder:
+                (BuildContext context, int itemIndex, int pageViewIndex) =>
+                    Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Text(
+                          itemIndex.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                          ),
+                        ),
+                      ),
+                    ),
+            options: CarouselOptions(
+              height: 200,
+              aspectRatio: 16 / 9,
+              viewportFraction: 0.7,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 10),
+              autoPlayAnimationDuration: const Duration(milliseconds: 2000),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+            ),
+          ),
         ],
       ),
     );
